@@ -13,3 +13,8 @@ regex.*
 .gdb_*
 build/
 localdata
+temp/
+!lex.lexc.c 
+!lex.yy.c 
+!lex.cmatrix.c
+!regex.c

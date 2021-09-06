@@ -27,7 +27,8 @@ add_library(foma STATIC int_stack.c
                         coaccessible.c 
                         utf8.c 
                         spelling.c 
-                        dynarray.c mem.c 
+                        dynarray.c 
+                        mem.c 
                         stringhash.c 
                         trie.c 
                         lex.lexc.c 
