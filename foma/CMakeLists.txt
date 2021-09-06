@@ -1,13 +1,14 @@
-cmake_minimum_required(VERSION 3.12)
-
-project(Foma VERSION 0.10.0)
-
 include(FetchContent)
 FetchContent_Declare(
     gzip_lib
     GIT_REPOSITORY https://github.com/madler/zlib.git
     GIT_TAG v1.2.11)
-FetchContent_MakeAvailable(gzip_lib)
+FetchContent_GetProperties(gzip_lib)
+if(NOT gzip_lib_POPULATED)
+    FetchContent_Populate(gzip_lib)
+    file(COPY ${gzip_lib_SOURCE_DIR}/zlib.h DESTINATION ${gzip_lib_BINARY_DIR})
+    add_subdirectory(${gzip_lib_SOURCE_DIR} ${gzip_lib_BINARY_DIR})
+endif()
 
 add_library(foma STATIC int_stack.c 
                         define.c 
@@ -42,6 +43,7 @@ add_library(foma STATIC int_stack.c
                         regex.h)
 
 target_compile_options(foma PUBLIC -O3 -Wall -D_GNU_SOURCE -std=c99 -fvisibility=hidden -fPIC)
+target_include_directories(foma PUBLIC ${gzip_lib_BINARY_DIR}/)
 
 add_executable(flookup flookup.c)
 target_link_libraries(flookup PUBLIC foma zlib)
