@@ -9,3 +9,7 @@ cgflookup
 regex.*
 !regex.l
 *.dylib
+.vscode
+.gdb_*
+build/
+localdata
