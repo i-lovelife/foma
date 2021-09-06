@@ -18,3 +18,4 @@ temp/
 !lex.yy.c 
 !lex.cmatrix.c
 !regex.c
+!regex.h

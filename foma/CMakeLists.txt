@@ -34,7 +34,12 @@ add_library(foma STATIC int_stack.c
                         lex.lexc.c 
                         lex.yy.c 
                         lex.cmatrix.c 
-                        regex.c)
+                        regex.c
+                        fomalib.h
+                        fomalibconf.h
+                        foma.h
+                        lexc.h
+                        regex.h)
 
 target_compile_options(foma PUBLIC -O3 -Wall -D_GNU_SOURCE -std=c99 -fvisibility=hidden -fPIC)
 
