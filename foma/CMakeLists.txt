@@ -42,8 +42,10 @@ add_library(foma STATIC int_stack.c
                         lexc.h
                         regex.h)
 
+target_link_libraries(foma zlibstatic)
+
 target_compile_options(foma PUBLIC -O3 -Wall -D_GNU_SOURCE -std=c99 -fvisibility=hidden -fPIC)
 target_include_directories(foma PUBLIC ${gzip_lib_BINARY_DIR}/)
 
 add_executable(flookup flookup.c)
-target_link_libraries(flookup PUBLIC foma zlib)
+target_link_libraries(flookup PUBLIC foma)
