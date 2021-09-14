@@ -14,7 +14,12 @@
 /*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  */
 /*   See the License for the specific language governing permissions and       */
 /*   limitations under the License.                                            */
+#ifndef FOMA_H
+#define FOMA_H
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 #include "fomalib.h"
 
 #define AP_D 1 /* Apply down */
@@ -165,3 +170,9 @@ int iface_write_att(char *filename);
 void iface_write_prolog(char *filename);
 void iface_zero_plus(void);
 int  print_stats(struct fsm *net);
+
+#ifdef  __cplusplus
+}
+#endif
+
+#endif /* FOMALIB_H */

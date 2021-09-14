@@ -33,9 +33,12 @@ add_library(foma STATIC int_stack.c
                         stringhash.c 
                         trie.c 
                         lex.lexc.c 
+                        lex.interface.c
                         lex.yy.c 
                         lex.cmatrix.c 
                         regex.c
+                        iface.c
+                        stack.c
                         fomalib.h
                         fomalibconf.h
                         foma.h
@@ -44,8 +47,12 @@ add_library(foma STATIC int_stack.c
 
 target_link_libraries(foma zlibstatic)
 
-target_compile_options(foma PRIVATE -O3 -Wall -D_GNU_SOURCE -std=c99 -fvisibility=hidden -fPIC)
+target_compile_options(foma PRIVATE -Wall -D_GNU_SOURCE -std=c99 -fvisibility=hidden -fPIC)
+add_compile_options("$<$<CONFIG:DEBUG>:-g>" "$<$<CONFIG:RELEASE>:-O3>")
 target_include_directories(foma PUBLIC ${gzip_lib_BINARY_DIR}/)
 
-add_executable(flookup flookup.c)
-target_link_libraries(flookup PUBLIC foma)
+add_executable(test_apply test_apply.cpp)
+target_link_libraries(test_apply PUBLIC foma)
+
+add_executable(test_compile test_compile.cpp)
+target_link_libraries(test_compile PUBLIC foma)
