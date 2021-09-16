@@ -556,6 +556,7 @@ struct fsm *fsm_read_binary_file(char *filename) {
     }
     net = io_net_read(iobh, &net_name);
     io_free(iobh);
+    free(net_name);
     return(net);
 }
 
