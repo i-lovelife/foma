@@ -18,5 +18,6 @@ temp2/
 !lex.lexc.c 
 !lex.yy.c 
 !lex.cmatrix.c
+!lex.interface.c
 !regex.c
 !regex.h

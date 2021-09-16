@@ -8,7 +8,7 @@ extern void my_interfaceparse(char *my_string);
 int promptmode = PROMPT_MAIN;
 int apply_direction;
 }
-defined_networks* compile(string str) {
+void compile(string str) {
     stack_init();
     g_defines = defined_networks_init();
     g_defines_f = defined_functions_init();
