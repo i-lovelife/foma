@@ -12,7 +12,9 @@ void compile(string str) {
     stack_init();
     g_defines = defined_networks_init();
     g_defines_f = defined_functions_init();
-    my_interfaceparse(strdup(str.c_str()));
+    char* str_cstr = strdup(str.c_str());
+    my_interfaceparse(str_cstr);
+    free(str_cstr);
     if (find_defined(g_defines, "DateParser") != NULL) {
         puts("ok");
     }

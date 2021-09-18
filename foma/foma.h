@@ -171,6 +171,15 @@ void iface_write_prolog(char *filename);
 void iface_zero_plus(void);
 int  print_stats(struct fsm *net);
 
+struct io_buf_handle {
+    char *io_buf;
+    char *io_buf_ptr;
+};
+
+struct io_buf_handle *io_init();
+void io_free(struct io_buf_handle *iobh);
+struct fsm *io_net_read(struct io_buf_handle *iobh, char **net_name);
+
 #ifdef  __cplusplus
 }
 #endif

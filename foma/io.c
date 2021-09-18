@@ -44,11 +44,6 @@ struct binaryline {
 
 extern char *g_att_epsilon;
 
-struct io_buf_handle {
-    char *io_buf;
-    char *io_buf_ptr;
-};
-
 struct io_buf_handle *io_init();
 void io_free(struct io_buf_handle *iobh);
 static int io_gets(struct io_buf_handle *iobh, char *target);
