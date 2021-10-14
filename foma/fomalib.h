@@ -33,7 +33,11 @@ extern "C" {
 
 #define INLINE inline
 
-#define FEXPORT __attribute__((visibility("default")))
+#if defined(__GNUC__) && __GNUC__ >= 3
+    #define FEXPORT __attribute__((visibility("default")))
+#else
+    #define FEXPORT
+#endif
 
 /* Library version */
 #define MAJOR_VERSION 0

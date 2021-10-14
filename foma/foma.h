@@ -29,6 +29,10 @@ extern "C" {
 #define PROMPT_MAIN 0 /* Regular prompt */
 #define PROMPT_A 1    /* Apply prompt   */
 
+#ifndef _UNISTD_H
+  #define YY_NO_UNISTD_H
+#endif
+
 /** Runtime options */
 struct _fsm_options {
 	_Bool skip_word_boundary_marker;
